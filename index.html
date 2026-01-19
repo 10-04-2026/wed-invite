@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armen & Arus — 10.04.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f4f1;
+  --text:#2b2b2b;
+  --muted:#8a8a8a;
+  --accent:#3a3a3a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:"Cormorant Garamond", serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+
+/* ================= INTRO ================= */
+
+.intro{
+  min-height:100vh;
+  background:#e6e2dc;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.intro-inner{
+  width:100%;
+  text-align:center;
+}
+
+#typeText{
+  display:inline-block;
+  font-family:"Playfair Display", serif;
+  font-size:30px;
+  letter-spacing:.25em;
+  white-space:nowrap;
+  border-right:3px solid var(--accent);
+  padding-right:6px;
+}
+
+/* после печати — бегущая строка */
+.marquee-active{
+  animation:marquee 18s linear infinite;
+  padding-left:100%;
+  border:none;
+}
+
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+
+@media(max-width:600px){
+  #typeText{font-size:20px}
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:120px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.wrap{
+  max-width:760px;
+  width:100%;
+  text-align:center;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  background:#e6e2dc;
+  display:flex;
+  align-items:center;
+}
+
+.hero video{
+  max-width:100%;
+  border-radius:22px;
+  margin-bottom:40px;
+}
+
+.names{
+  font-family:"Playfair Display", serif;
+  font-size:56px;
+  letter-spacing:.15em;
+}
+
+.date{
+  margin-top:12px;
+  font-size:15px;
+  letter-spacing:.3em;
+  color:var(--muted);
+}
+
+/* ================= TEXT ================= */
+
+h2{
+  font-family:"Playfair Display", serif;
+  font-size:36px;
+  margin-bottom:30px;
+}
+
+p{
+  max-width:620px;
+  margin:0 auto;
+  font-size:20px;
+}
+
+/* ================= CALENDAR ================= */
+
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:14px;
+  max-width:420px;
+  margin:40px auto 0;
+  font-size:18px;
+}
+
+.calendar div{
+  padding:12px;
+  border-radius:14px;
+  background:#fff;
+  color:#aaa;
+}
+
+.calendar .heart{
+  color:#000;
+  position:relative;
+}
+
+.calendar .heart::after{
+  content:"❤";
+  position:absolute;
+  top:-8px;
+  right:-6px;
+  font-size:18px;
+}
+
+/* ================= EVENTS ================= */
+
+.event{
+  margin-bottom:50px;
+  animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+.icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.time{
+  letter-spacing:.3em;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ================= ANIMATION ================= */
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.show{
+  opacity:1;
+  transform:none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div id="typeText"></div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div class="wrap">
+    <video autoplay muted loop playsinline poster="poster.jpg">
+      <source src="video.mp4" type="video
