@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armen & Arus — 10.04.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f4f3f1;
+  --text:#111;
+  --muted:#7a7a7a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,system-ui,-apple-system,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 20px;
+}
+
+.wrap{
+  max-width:760px;
+  width:100%;
+  text-align:center;
+}
+
+.small{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* INTRO */
+.intro{
+  background:#000;
+  color:#fff;
+}
+
+.marquee{
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.marquee span{
+  display:inline-block;
+  padding-left:100%;
+  animation:marquee 14s linear infinite;
+  font-size:26px;
+  letter-spacing:.35em;
+}
+
+@keyframes marquee{
+  to{transform:translateX(-100%)}
+}
+
+/* HERO */
+.hero{
+  background:#eceae6;
+}
+
+.hero img{
+  max-width:100%;
+  border-radius:12px;
+  margin-bottom:36px;
+}
+
+.names{
+  font-size:42px;
+  letter-spacing:.18em;
+  font-weight:400;
+  margin-bottom:6px;
+}
+
+.date{
+  font-size:17px;
+  color:var(--muted);
+}
+
+/* TEXT */
+h2{
+  font-weight:400;
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+p{
+  max-width:560px;
+  margin:0 auto 14px;
+  color:#5f5f5f;
+}
+
+/* CALENDAR */
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  max-width:360px;
+  margin:26px auto 0;
+}
+
+.day{
+  padding:14px;
+  background:#fff;
+  border-radius:8px;
+  color:#bbb;
+}
+
+.day.active{
+  background:#111;
+  color:#fff;
+}
+
+/* TIMELINE */
+.event{
+  margin-bottom:28px;
+}
+
+.event h3{
+  font-weight:400;
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.addr{
+  font-size:15px;
+  color:#666;
+}
+
+/* FORM */
+form{
+  max-width:420px;
+  margin:0 auto;
+  text-align:left;
+}
+
+label{
+  display:block;
+  margin:16px 0 6px;
+  font-size:14px;
+  color:#555;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-family:inherit;
+  font-size:14px;
+}
+
+button{
+  margin-top:22px;
+  padding:16px;
+  width:100%;
+  background:#111;
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  font-size:15px;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.show{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:600px){
+  .names{font-size:32px}
+  h2{font-size:24px}
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="intro">
+  <div class="wrap marquee">
+    <span>ВЫ ПРИГЛАШЕНЫ НА СВАДЬБУ</span>
+  </div>
+</section>
+
+<section class="hero fade">
+  <div class="wrap">
+    <img src="photo.jpg" alt="Armen & Arus">
+    <div class="names">ARMEN & ARUS</div>
+    <div class="date">10 апреля 2026</div>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <h2>Апрель 2026</h2>
+    <div class="calendar">
+      <div class="day"></div><div class="day"></div><div class="day"></div>
+      <div class="day"></div><div class="day"></div><div class="day"></div>
+      <div class="day active">10</div>
+    </div>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <h2>Дорогие родные и близкие</h2>
+    <p>С огромным волнением и радостью мы приглашаем вас разделить с нами этот особенный день — нашу свадьбу.</p>
+    <p>Мы будем счастливы видеть вас рядом в этот важный для нас момент.</p>
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <div class="event">
+      <h3>13:30 — Венчание</h3>
+      <div class="addr">Армянская Апостольская Церковь<br>Олимпийский проспект, 9, Москва</div>
+    </div>
+
+
+<div class="event">
+  <h3>16:00 — Сбор гостей</h3>
+  <div class="addr">Ресторан «Симфония Холл»<br>Домодедово</div>
+</div>
+
+<div class="event">
+  <h3>17:00 — Начало банкета</h3>
+</div>
+
+<div class="event">
+  <h3>22:00 — Торт и танцы</h3>
+</div>
+
+
+  </div>
+</section>
+
+<section class="fade">
+  <div class="wrap">
+    <h2>Подтвердите присутствие</h2>
+    <p class="small">Пожалуйста, заполните форму ниже</p>
+
+
+<form>
+  <label>Имя и фамилия</label>
+  <input type="text">
+
+  <label>Вы будете присутствовать?</label>
+  <select>
+    <option>Да</option>
+    <option>Нет</option>
+  </select>
+
+  <label>Комментарий</label>
+  <textarea rows="3"></textarea>
+
+  <button type="button">Отправить</button>
+</form>
+
+
+  </div>
+</section>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('show')
+  })
+},{threshold:.15});
+
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
