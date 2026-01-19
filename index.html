@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armen & Arus — 10.04.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f4f1;
+  --text:#2b2b2b;
+  --muted:#8a8a8a;
+  --accent:#3a3a3a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Cormorant Garamond", serif;background:var(--bg);color:var(--text);line-height:1.8;}
+
+/* INTRO - Typewriter */
+.intro{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e6e2dc;
+}
+#type{
+  font-family:"Great Vibes", cursive;
+  font-size:36px;
+  white-space:nowrap;
+  border-right:2px solid var(--accent);
+  padding-right:6px;
+  overflow:hidden;
+}
+
+/* SECTIONS */
+section{padding:120px 20px;display:flex;justify-content:center;}
+.wrap{max-width:760px;width:100%;text-align:center;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;}
+.hero video{width:100%;border-radius:22px;margin-bottom:40px;}
+.names{font-family:"Playfair Display", serif;font-size:54px;letter-spacing:.15em;}
+.date{margin-top:12px;font-size:15px;letter-spacing:.35em;color:var(--muted);}
+
+/* TEXT */
+h2{font-family:"Playfair Display", serif;font-size:36px;margin-bottom:30px;}
+p{max-width:640px;margin:0 auto;font-size:21px;}
+
+/* CALENDAR */
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  max-width:420px;
+  margin:40px auto 0;
+}
+.calendar div{
+  padding:14px 0;
+  background:#fff;
+  border-radius:14px;
+  color:#aaa;
+  transition:0.3s;
+}
+.calendar .active{
+  color:#fff;
+  background:#3a3a3a;
+  border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+/* TIMING */
+.timing{margin-bottom:60px;}
+.timing h2{margin-bottom:50px;}
+.event{margin-bottom:40px;}
+.time{
+  font-size:28px;
+  letter-spacing:.2em;
+  color:var(--accent);
+  margin-bottom:6px;
+  font-family:"Great Vibes", cursive;
+}
+.title{font-family:"Great Vibes", cursive;font-size:24px;}
+.addr{margin-top:6px;font-size:17px;color:#666;}
+
+/* FORM */
+form{max-width:500px;margin:0 auto;text-align:left;}
+label{display:block;margin-top:24px;font-size:14px;color:var(--muted);}
+input,select,textarea{
+  width:100%;
+  padding:10px 6px;
+  border:none;
+  border-bottom:1px solid #ccc;
+  background:transparent;
+  font-family:inherit;
+  font-size:16px;
+}
+button{
+  margin-top:30px;
+  width:100%;
+  padding:16px;
+  background:#3a3a3a;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+}
+
+/* FADE ANIMATION */
+.fade{opacity:0;transform:translateY(40px);transition:.8s ease;}
+.fade.show{opacity:1;transform:none;}
+@media(max-width:600px){.names{font-size:38px} h2{font-size:26px} #type{font-size:28px}}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <div id="type"></div>
+</section>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div class="wrap">
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="names">ARMEN & ARUS</div>
+    <div class="date">10 APRIL 2026</div>
+  </div>
+</section>
+
+<!-- TEXT -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Дорогие родные и близкие</h2>
+    <p>С огромным волнением и радостью мы приглашаем вас разделить с нами этот особенный день — нашу свадьбу. Это будет незабываемое событие, и мы хотим, чтобы вы стали его частью.</p>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Апрель 2026</h2>
+    <div class="calendar">
+      <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+      <div>8</div><div>9</div><div class="active">10</div><div>11</div><div>12</div><div>13</div><div>14</div>
+      <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
+      <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
+      <div>29</div><div>30</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMING -->
+<section class="fade timing">
+  <div class="wrap">
+    <h2>Тайминг</h2>
+
+    <div class="event">
+      <div class="time">13:30</div>
+      <div class="title">Венчание</div>
+      <div class="addr">
+        Армянская Апостольская Церковь<br>
+        Кафедральный собор Преображения Господня<br>
+        Олимпийский проспект, 9, Москва
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="time">16:00</div>
+      <div class="title">Сбор гостей</div>
+      <div class="addr">
+        Ресторан «Симфония Холл»<br>
+        Овражный тупик, 2, деревня Камкино, Домодедово
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="time">17:00</div>
+      <div class="title">Начало банкета</div>
+    </div>
+
+    <div class="event">
+      <div class="time">22:00</div>
+      <div class="title">Торт и party all night</div>
+    </div>
+  </div>
+</section>
+
+<!-- АНКЕТА -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Анкета</h2>
+    <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+
+    <form>
+      <label>Ваше имя и фамилия</label>
+      <input type="text">
+
+      <label>Планируете ли вы присутствовать?</label>
+      <select>
+        <option>Да, с удовольствием!</option>
+        <option>К сожалению, не смогу</option>
+      </select>
+
+      <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
+      <input type="text">
+
+      <button type="button">Отправить</button>
+    </form>
+  </div>
+</section>
+
+<script>
+// Typewriter
+const text="Вы приглашены на свадьбу";
+const el=document.getElementById("type");
+let i=0;
+function type(){
+  if(i<text.length){
+    el.textContent+=text.charAt(i);
+    i++;
+    setTimeout(type,120);
+  }
+}
+type();
+
+// Fade scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("show");
+    else e.target.classList.remove("show");
+  });
+},{threshold:.2});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
