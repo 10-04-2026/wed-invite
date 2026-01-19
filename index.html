@@ -1,0 +1,34 @@
+.intro{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#e6e2dc; /* такой же фон, как у hero */
+  text-align:center;
+}
+
+.typewriter{
+  font-family:Playfair Display, serif;
+  font-size:48px;
+  letter-spacing:.12em;
+  color:var(--accent);
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:4px solid var(--accent);
+  width:0;
+  animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing{
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink{
+  50% { border-color: transparent; }
+  100% { border-color: var(--accent); }
+}
+
+@media(max-width:600px){
+  .typewriter{font-size:32px}
+}
