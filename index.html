@@ -297,24 +297,24 @@ button:hover{background:var(--heart);}
   </div>
 </section>
 
-<!-- АНКЕТА -->
+<!-- АНКЕТА через Google Forms -->
 <section class="fade">
   <div class="wrap">
     <h2 class="handwritten">Анкета</h2>
     <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <form>
-      <label>Ваше имя и фамилия</label>
-      <input type="text">
-      <label>Планируете ли вы присутствовать?</label>
-      <select>
-        <option>Да, с удовольствием!</option>
-        <option>К сожалению, не смогу</option>
-      </select>
-      <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
-      <input type="text">
-      <button type="button">Отправить</button>
-    </form>
+    <div style="max-width:500px; margin:0 auto; border:2px solid var(--accent); border-radius:12px; overflow:hidden;">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScUhOHF0xMIiivTDwWtj-kzHr7Zm6pKfLtwvmWgXSm1TuSEXA/viewform?embedded=true" 
+        width="100%" 
+        height="716" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="background:var(--input-bg);">
+        Loading…
+      </iframe>
+    </div>
   </div>
 </section>
 
