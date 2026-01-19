@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armen & Arus — 10.04.2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6f4f1;
+  --text:#2b2b2b;
+  --muted:#8a8a8a;
+  --accent:#3a3a3a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Montserrat, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+
+section{
+  padding:120px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.wrap{
+  max-width:760px;
+  width:100%;
+  text-align:center;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#e6e2dc;
+  text-align:center;
+  position:relative;
+}
+
+.hero img{
+  max-width:100%;
+  border-radius:18px;
+  margin-bottom:40px;
+  display:block;
+}
+
+.names{
+  font-family:Playfair Display, serif;
+  font-size:56px;
+  letter-spacing:.12em;
+  margin-bottom:12px;
+}
+
+.date{
+  font-size:16px;
+  color:var(--muted);
+  letter-spacing:.2em;
+}
+
+/* TITLES */
+h2{
+  font-family:Playfair Display, serif;
+  font-size:34px;
+  font-weight:400;
+  margin-bottom:26px;
+}
+
+/* TEXT */
+p{
+  max-width:520px;
+  margin:0 auto 18px;
+  color:#5f5f5f;
+}
+
+/* CALENDAR */
+.calendar{
+  margin-top:30px;
+  font-family:Playfair Display, serif;
+  font-size:48px;
+  letter-spacing:.1em;
+}
+
+/* TIMELINE */
+.event{
+  margin-bottom:40px;
+}
+
+.time{
+  font-size:15px;
+  letter-spacing:.2em;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.title{
+  font-family:Playfair Display, serif;
+  font-size:22px;
+}
+
+.addr{
+  font-size:15px;
+  color:#6d6d6d;
+}
+
+/* FORM */
+form{
+  max-width:420px;
+  margin:0 auto;
+  text-align:left;
+}
+
+label{
+  display:block;
+  margin-top:28px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+input,select,textarea{
+  width:100%;
+  padding:10px 4px;
+  border:none;
+  border-bottom:1px solid #ccc;
+  background:transparent;
+  font-family:inherit;
+  font-size:15px;
+}
+
+button{
+  margin-top:50px;
+  width:100%;
+  padding:16px;
+  background:#fff;
+  border:1px solid var(--accent);
+  font-size:14px;
+  letter-spacing:.2em;
+  cursor:pointer;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s ease;
+}
+
+.show{
+  opacity:1;
+  transform:none;
+}
+
+@media(max-width:600px){
+  .names{font-size:38px}
+  h2{font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div class="wrap">
+    <!-- Плейсхолдер изображения, работает даже без фото -->
+    <img src="photo.jpg" alt="Armen & Arus" onerror="this.src='https://via.placeholder.com/800x500?text=Фото+здесь'">
+    <div class="names">ARMEN<br>& ARUS</div>
+    <div class="date">10 APRIL 2026</div>
+  </div>
+</section>
+
+<!-- ПРИГЛАШЕНИЕ -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Дорогие родные и близкие</h2>
+    <p>С радостью приглашаем вас разделить с нами самый важный день нашей жизни.</p>
+    <p>Будем счастливы видеть вас рядом.</p>
+  </div>
+</section>
+
+<!-- ДАТА -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Дата</h2>
+    <div class="calendar">10 · 04 · 26</div>
+  </div>
+</section>
+
+<!-- РАСПИСАНИЕ -->
+<section class="fade">
+  <div class="wrap">
+
+    <div class="event">
+      <div class="time">13:30</div>
+      <div class="title">Венчание</div>
+      <div class="addr">Армянская Апостольская Церковь<br>Москва</div>
+    </div>
+
+    <div class="event">
+      <div class="time">16:00</div>
+      <div class="title">Сбор гостей</div>
+      <div class="addr">Ресторан «Симфония Холл»</div>
+    </div>
+
+    <div class="event">
+      <div class="time">17:00</div>
+      <div class="title">Начало банкета</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ФОРМА -->
+<section class="fade">
+  <div class="wrap">
+    <h2>Подтвердите присутствие</h2>
+    <form>
+      <label>Имя и фамилия</label>
+      <input type="text" required>
+
+      <label>Вы будете присутствовать?</label>
+      <select required>
+        <option>Да</option>
+        <option>Нет</option>
+      </select>
+
+      <label>Комментарий</label>
+      <textarea rows="3"></textarea>
+
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+</section>
+
+<script>
+// Fade-in анимация при скролле
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+}, {threshold:0.2});
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
