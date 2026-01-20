@@ -303,49 +303,58 @@ button:hover{background:var(--heart);}
     <h2 class="handwritten">Анкета</h2>
     <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <form id="weddingForm">
+    <form id="rsvpForm">
       <label>Ваше имя и фамилия</label>
       <input type="text" name="name" required>
-      
+
       <label>Планируете ли вы присутствовать?</label>
       <select name="attendance" required>
+        <option value="">Выберите</option>
         <option value="Да, с удовольствием!">Да, с удовольствием!</option>
         <option value="К сожалению, не смогу">К сожалению, не смогу</option>
       </select>
-      
+
       <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
       <input type="text" name="partner">
-      
+
       <button type="submit">Отправить</button>
     </form>
-    
-    <div id="formMessage" style="margin-top:20px;color:green;"></div>
+
+    <p id="formMessage" style="margin-top:16px;font-weight:bold;"></p>
   </div>
 </section>
 
 <script>
-const form = document.getElementById("weddingForm");
-const message = document.getElementById("formMessage");
+const form = document.getElementById("rsvpForm");
+const messageEl = document.getElementById("formMessage");
 
-form.addEventListener("submit", e => {
+// URL твоего веб-приложения Google Apps Script
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwA6g0e0TA6QTurAUbKzhdWpUMjZ5eFBh7z7RmKhiZ7wDtrU4m0FdqRWHtDgJw--6se/exec";
+
+form.addEventListener("submit", async function(e){
   e.preventDefault();
-
+  messageEl.textContent = "Отправка...";
+  
   const formData = new FormData(form);
+  const params = new URLSearchParams(formData);
 
-  fetch("https://script.google.com/macros/s/AKfycbybnQC5FPGY6oo8DAlsnUjQF4PuyiRG6ttWMN6XBUQH9E1BGZDLHZwMGgvet3UwS9uO/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.text())
-  .then(res => {
-    message.textContent = "Спасибо! Ваши данные успешно отправлены.";
-    form.reset();
-  })
-  .catch(err => {
-    console.error(err);
-    message.textContent = "Ошибка при отправке данных. Попробуйте ещё раз.";
-    message.style.color = "red";
-  });
+  try {
+    const response = await fetch(WEB_APP_URL, {
+      method: "POST",
+      body: params
+    });
+    
+    const result = await response.json();
+    
+    if(result.status === "success"){
+      messageEl.textContent = "Спасибо! Ваша анкета отправлена.";
+      form.reset();
+    } else {
+      messageEl.textContent = "Ошибка при отправке: " + result.message;
+    }
+  } catch(err){
+    messageEl.textContent = "Ошибка при отправке: " + err.message;
+  }
 });
 </script>
 
