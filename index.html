@@ -303,52 +303,52 @@ button:hover{background:var(--heart);}
     <h2 class="handwritten">Анкета</h2>
     <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <!-- Форма с интеграцией Google Apps Script -->
     <form id="weddingForm">
       <label>Ваше имя и фамилия</label>
-      <input name="name" type="text" required>
-
+      <input type="text" name="name" required>
+      
       <label>Планируете ли вы присутствовать?</label>
       <select name="attendance" required>
-        <option>Да, с удовольствием!</option>
-        <option>К сожалению, не смогу</option>
+        <option value="Да, с удовольствием!">Да, с удовольствием!</option>
+        <option value="К сожалению, не смогу">К сожалению, не смогу</option>
       </select>
-
+      
       <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
-      <input name="partner" type="text">
-
+      <input type="text" name="partner">
+      
       <button type="submit">Отправить</button>
     </form>
+    
+    <div id="formMessage" style="margin-top:20px;color:green;"></div>
   </div>
 </section>
 
 <script>
-// Typewriter и календарь оставляем без изменений...
+const form = document.getElementById("weddingForm");
+const message = document.getElementById("formMessage");
 
-// --------------------------------------------
-// Форма отправки на Google Таблицу
-// --------------------------------------------
-const form = document.getElementById('weddingForm');
-form.addEventListener('submit', function(e){
-  e.preventDefault(); // предотвращаем перезагрузку страницы
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-  const formData = new FormData(this);
+  const formData = new FormData(form);
 
-  fetch('https://script.google.com/macros/s/AKfycbxCvkPy5cPsOZLAAN2841zidlCIMLfZfnTe_h1WdFW8xOgEn-eLLMXMKiTd_jmon14Y/exec', { // <-- сюда вставь ссылку на Apps Script
-    method: 'POST',
+  fetch("https://script.google.com/macros/s/AKfycbybnQC5FPGY6oo8DAlsnUjQF4PuyiRG6ttWMN6XBUQH9E1BGZDLHZwMGgvet3UwS9uO/exec", {
+    method: "POST",
     body: formData
   })
-  .then(response => response.text())
-  .then(data => {
-    alert("Спасибо! Ваш ответ отправлен.");
+  .then(res => res.text())
+  .then(res => {
+    message.textContent = "Спасибо! Ваши данные успешно отправлены.";
     form.reset();
   })
   .catch(err => {
     console.error(err);
-    alert("Ошибка при отправке. Попробуйте позже.");
+    message.textContent = "Ошибка при отправке данных. Попробуйте ещё раз.";
+    message.style.color = "red";
   });
 });
 </script>
+
 
 
 
