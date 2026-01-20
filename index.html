@@ -17,15 +17,12 @@
   --spark:#ffd700;
   --input-bg:#fff;
 }
-
-/* GLOBAL */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:"Cormorant Garamond", serif;background:var(--bg);color:var(--text);line-height:1.8;}
 section{padding:120px 20px;display:flex;justify-content:center;position:relative;}
 .wrap{max-width:760px;width:100%;text-align:center;}
 
-/* INTRO */
 .intro{
   height:100vh;
   display:flex;
@@ -40,10 +37,8 @@ section{padding:120px 20px;display:flex;justify-content:center;position:relative
   white-space:nowrap;
   border-right:2px solid var(--accent);
   padding-right:6px;
-  overflow:hidden;
 }
 
-/* Arrow down — удлинена */
 .arrow-down{
   position:absolute;
   bottom:40px;
@@ -60,140 +55,38 @@ section{padding:120px 20px;display:flex;justify-content:center;position:relative
   50%{transform:translateX(-50%) translateY(10px) rotate(-45deg);}
 }
 
-/* HERO VIDEO */
 .hero-wrap{
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .hero-wrap video{
-  width: 100%;
-  height: auto;
-  border-radius: 22px;
-  object-fit: cover;
-  filter: brightness(0.6);
+  width:100%;
+  border-radius:22px;
+  object-fit:cover;
+  filter:brightness(0.6);
 }
 .hero-text{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
+  position:absolute;
   color:#fff;
-  opacity:0;
-  animation: slideUp 1s forwards;
-}
-@keyframes slideUp{
-  from{opacity:0; transform:translate(-50%,30%);}
-  to{opacity:1; transform:translate(-50%,-50%);}
+  text-align:center;
 }
 .hero-text .names{
-  font-family: "Playfair Display", serif;
-  font-size: 72px;
-  letter-spacing: .15em;
+  font-family:"Playfair Display", serif;
+  font-size:72px;
+  letter-spacing:.15em;
 }
 .hero-text .date{
-  margin-top: 20px;
-  font-size: 42px;
-  letter-spacing: .35em;
+  margin-top:20px;
+  font-size:42px;
+  letter-spacing:.35em;
 }
 
-/* TEXT */
-h2.handwritten{font-family:"Great Vibes", cursive;font-size:36px;margin-bottom:30px;}
-p{max-width:640px;margin:0 auto;font-size:21px;}
-
-/* CALENDAR */
-.weekdays{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  max-width:480px;
-  margin:0 auto 8px;
-  color:var(--muted);
-  font-weight:500;
-}
-.calendar{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:12px;
-  max-width:480px;
-  margin:10px auto 40px;
-}
-.calendar .day{
-  padding:12px 0;
-  background:#fff;
-  border-radius:12px;
-  color:#aaa;
-  transition:0.3s;
-  cursor:pointer;
-}
-.calendar .day:hover{
-  transform:translateY(-5px) scale(1.05);
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
-}
-.calendar .active{
-  color:#fff;
-  background:var(--heart);
-  border-radius:50%;
-  animation:pulse 1.5s infinite;
-}
-.calendar .active::after{
-  content:"♥";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:18px;
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.15)}
-}
-
-/* TIMING */
-.timing{margin-bottom:70px;}
-.event{margin-bottom:40px; display:flex;}
-.time{
-  font-size:36px;
-  letter-spacing:.2em;
-  margin-right:16px;
-  font-family:"Great Vibes", cursive;
-  min-width:100px;
-}
-.title{font-family:"Great Vibes", cursive;font-size:28px;}
-.addr{margin-top:6px;font-size:17px;color:#666;}
-
-/* FORM */
-form{max-width:500px;margin:0 auto;text-align:left;}
-label{display:block;margin-top:24px;font-size:14px;color:var(--muted);}
-input,select{
-  width:100%;
-  padding:12px;
-  border:2px solid var(--accent);
-  border-radius:8px;
-  font-size:16px;
-}
-button{
-  margin-top:30px;
-  width:100%;
-  padding:16px;
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  border-radius:8px;
-}
-
-/* FADE */
 .fade{opacity:0;transform:translateY(40px);transition:.8s;}
 .fade.show{opacity:1;transform:none;}
-
-@media(max-width:600px){
-  .hero-text .names{font-size:48px;}
-  .hero-text .date{font-size:28px;}
-}
 </style>
 </head>
 
@@ -207,7 +100,7 @@ button{
   <div class="arrow-down"></div>
 </section>
 
-<!-- HERO -->
+<!-- HERO VIDEO -->
 <section id="heroVideo" class="hero fade" style="display:none;">
   <div class="wrap hero-wrap">
     <video autoplay muted loop playsinline>
@@ -220,38 +113,65 @@ button{
   </div>
 </section>
 
+<!-- TEXT -->
+<section class="fade">
+  <div class="wrap">
+    <h2 class="handwritten">Дорогие родные и близкие</h2>
+    <p>С огромным волнением и радостью мы приглашаем вас разделить с нами этот особенный день — нашу свадьбу.</p>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="fade">
+  <div class="wrap">
+    <h2 class="handwritten">Апрель 2026</h2>
+    <div id="calendar"></div>
+  </div>
+</section>
+
+<!-- TIMING -->
+<section class="fade">
+  <div class="wrap">
+    <h2 class="handwritten">Тайминг</h2>
+    <p>13:30 — Венчание<br>16:00 — Сбор гостей<br>17:00 — Банкет</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="fade">
+  <div class="wrap">
+    <h2 class="handwritten">Анкета</h2>
+    <form>
+      <input placeholder="Ваше имя">
+      <button>Отправить</button>
+    </form>
+  </div>
+</section>
+
 <script>
-/* TYPEWRITER + AUTO SCROLL */
 const text="Вы приглашены на свадьбу";
 const el=document.getElementById("type");
 let i=0;
 
 function type(){
   if(i<text.length){
-    el.textContent+=text.charAt(i);
-    i++;
+    el.textContent+=text[i++];
     setTimeout(type,120);
   }else{
     const hero=document.getElementById("heroVideo");
     hero.style.display="flex";
     setTimeout(()=>{
       hero.classList.add("show");
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth"
-      });
+      window.scrollTo({top:window.innerHeight,behavior:"smooth"});
     },500);
   }
 }
 type();
 
-/* MUSIC */
-const music=document.getElementById("bgMusic");
-function playMusic(){
-  music.play();
-  window.removeEventListener("click", playMusic);
-}
-window.addEventListener("click", playMusic);
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add("show"));
+});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 </script>
 
 </body>
