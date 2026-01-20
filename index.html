@@ -331,11 +331,17 @@ function type(){
     el.textContent+=text.charAt(i);
     i++;
     setTimeout(type,120);
-  }else{
-    const hero=document.getElementById("heroVideo");
-    hero.style.display="flex";
-    setTimeout(()=>hero.classList.add("show"),50);
-  }
+ }else{
+  const hero=document.getElementById("heroVideo");
+  hero.style.display="flex";
+  setTimeout(()=>{
+    hero.classList.add("show");
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  }, 500);
+}
 }
 type();
 
