@@ -301,28 +301,20 @@ button:hover{background:var(--heart);}
 <section class="fade">
   <div class="wrap">
     <h2 class="handwritten">Анкета</h2>
-    <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. 
-    Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+    <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <div style="margin-top:30px; text-align:center;">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScUhOHF0xMIiivTDwWtj-kzHr7Zm6pKfLtwvmWgXSm1TuSEXA/viewform" target="_blank">
-        <button style="
-          padding:16px 32px;
-          font-size:18px;
-          font-family:'Great Vibes', cursive;
-          background:var(--accent);
-          color:#fff;
-          border:none;
-          border-radius:8px;
-          cursor:pointer;
-          transition:.3s;
-        " 
-        onmouseover="this.style.background='#ff4d6d';" 
-        onmouseout="this.style.background='var(--accent)';">
-          Заполнить анкету
-        </button>
-      </a>
-    </div>
+    <form>
+      <label>Ваше имя и фамилия</label>
+      <input type="text">
+      <label>Планируете ли вы присутствовать?</label>
+      <select>
+        <option>Да, с удовольствием!</option>
+        <option>К сожалению, не смогу</option>
+      </select>
+      <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
+      <input type="text">
+      <button type="button">Отправить</button>
+    </form>
   </div>
 </section>
 
