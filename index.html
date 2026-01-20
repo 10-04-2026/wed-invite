@@ -42,17 +42,18 @@ section{padding:120px 20px;display:flex;justify-content:center;position:relative
   padding-right:6px;
   overflow:hidden;
 }
-/* Arrow down */
+
+/* Arrow down — удлинена */
 .arrow-down{
   position:absolute;
   bottom:40px;
   left:50%;
   transform:translateX(-50%) rotate(-45deg);
-  width:24px;
-  height:24px;
+  width:34px;
+  height:34px;
   border-left:3px solid var(--accent);
   border-bottom:3px solid var(--accent);
-  animation: bounce 1.5s infinite;
+  animation:bounce 1.5s infinite;
 }
 @keyframes bounce{
   0%,100%{transform:translateX(-50%) translateY(0) rotate(-45deg);}
@@ -94,13 +95,11 @@ section{padding:120px 20px;display:flex;justify-content:center;position:relative
   font-family: "Playfair Display", serif;
   font-size: 72px;
   letter-spacing: .15em;
-  text-align:center;
 }
 .hero-text .date{
   margin-top: 20px;
   font-size: 42px;
   letter-spacing: .35em;
-  color: #fff;
 }
 
 /* TEXT */
@@ -122,7 +121,6 @@ p{max-width:640px;margin:0 auto;font-size:21px;}
   gap:12px;
   max-width:480px;
   margin:10px auto 40px;
-  position:relative;
 }
 .calendar .day{
   padding:12px 0;
@@ -130,9 +128,7 @@ p{max-width:640px;margin:0 auto;font-size:21px;}
   border-radius:12px;
   color:#aaa;
   transition:0.3s;
-  position:relative;
   cursor:pointer;
-  font-weight:500;
 }
 .calendar .day:hover{
   transform:translateY(-5px) scale(1.05);
@@ -151,35 +147,18 @@ p{max-width:640px;margin:0 auto;font-size:21px;}
   left:50%;
   transform:translate(-50%,-50%);
   font-size:18px;
-  color:#fff;
 }
 @keyframes pulse{
   0%,100%{transform:scale(1)}
   50%{transform:scale(1.15)}
 }
-/* Sparks */
-.spark{
-  position:absolute;
-  width:4px;
-  height:4px;
-  background:var(--spark);
-  border-radius:50%;
-  opacity:0;
-  pointer-events:none;
-  animation:fly 1s linear infinite;
-}
-@keyframes fly{
-  0%{opacity:1;transform:translate(0,0) scale(1)}
-  100%{opacity:0;transform:translate(calc(-50px + 100px*var(--randX)),-60px) scale(0.5)}
-}
 
 /* TIMING */
 .timing{margin-bottom:70px;}
-.event{margin-bottom:40px; display:flex; align-items:flex-start;}
+.event{margin-bottom:40px; display:flex;}
 .time{
   font-size:36px;
   letter-spacing:.2em;
-  color:var(--accent);
   margin-right:16px;
   font-family:"Great Vibes", cursive;
   min-width:100px;
@@ -190,15 +169,12 @@ p{max-width:640px;margin:0 auto;font-size:21px;}
 /* FORM */
 form{max-width:500px;margin:0 auto;text-align:left;}
 label{display:block;margin-top:24px;font-size:14px;color:var(--muted);}
-input,select,textarea{
+input,select{
   width:100%;
   padding:12px;
   border:2px solid var(--accent);
   border-radius:8px;
-  background:var(--input-bg);
-  font-family:inherit;
   font-size:16px;
-  margin-bottom:12px;
 }
 button{
   margin-top:30px;
@@ -206,31 +182,23 @@ button{
   padding:16px;
   background:var(--accent);
   color:#fff;
-  font-size:16px;
-  cursor:pointer;
   border:none;
   border-radius:8px;
-  transition:.3s;
 }
-button:hover{background:var(--heart);}
 
-/* FADE ANIMATION */
-.fade{opacity:0;transform:translateY(40px);transition:.8s ease;}
+/* FADE */
+.fade{opacity:0;transform:translateY(40px);transition:.8s;}
 .fade.show{opacity:1;transform:none;}
 
-/* MOBILE ADAPTIVE */
 @media(max-width:600px){
   .hero-text .names{font-size:48px;}
   .hero-text .date{font-size:28px;}
-  h2.handwritten{font-size:28px;}
-  .calendar{max-width:100%;}
-  .time{font-size:28px; min-width:80px;}
 }
 </style>
 </head>
+
 <body>
 
-<!-- AUDIO -->
 <audio id="bgMusic" src="music.mp3" loop></audio>
 
 <!-- INTRO -->
@@ -239,7 +207,7 @@ button:hover{background:var(--heart);}
   <div class="arrow-down"></div>
 </section>
 
-<!-- HERO VIDEO -->
+<!-- HERO -->
 <section id="heroVideo" class="hero fade" style="display:none;">
   <div class="wrap hero-wrap">
     <video autoplay muted loop playsinline>
@@ -252,80 +220,12 @@ button:hover{background:var(--heart);}
   </div>
 </section>
 
-<!-- TEXT -->
-<section class="fade">
-  <div class="wrap">
-    <h2 class="handwritten">Дорогие родные и близкие</h2>
-    <p>С огромным волнением и радостью мы приглашаем вас разделить с нами этот особенный день — нашу свадьбу. Это будет незабываемое событие, и мы хотим, чтобы вы стали его частью.</p>
-  </div>
-</section>
-
-<!-- CALENDAR -->
-<section class="fade">
-  <div class="wrap">
-    <h2 class="handwritten">Апрель 2026</h2>
-    <div class="weekdays">
-      <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
-    </div>
-    <div class="calendar" id="calendar"></div>
-  </div>
-</section>
-
-<!-- TIMING -->
-<section class="fade timing">
-  <div class="wrap">
-    <h2 class="handwritten">Тайминг</h2>
-
-    <div class="event">
-      <div class="time">13:30</div>
-      <div class="title">Венчание</div>
-      <div class="addr">Армянская Апостольская Церковь<br>Олимпийский проспект, 9, Москва</div>
-    </div>
-    <div class="event">
-      <div class="time">16:00</div>
-      <div class="title">Сбор гостей</div>
-      <div class="addr">Ресторан «Симфония Холл»<br>Овражный тупик, 2, деревня Камкино, Домодедово</div>
-    </div>
-    <div class="event">
-      <div class="time">17:00</div>
-      <div class="title">Начало банкета</div>
-    </div>
-    <div class="event">
-      <div class="time">22:00</div>
-      <div class="title">Торт и party all night</div>
-    </div>
-  </div>
-</section>
-
-<!-- АНКЕТА -->
-<section class="fade">
-  <div class="wrap">
-    <h2 class="handwritten">Анкета</h2>
-    <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
-
-    <form id="rsvpForm">
-      <label>Ваше имя и фамилия</label>
-      <input type="text" name="name" required>
-
-      <label>Планируете ли вы присутствовать?</label>
-      <select name="attendance" required>
-        <option>Да, с удовольствием!</option>
-        <option>К сожалению, не смогу</option>
-      </select>
-
-      <label>Имя спутника(-цы)</label>
-      <input type="text" name="partner">
-
-      <button type="submit">Отправить</button>
-    </form>
-  </div>
-</section>
-
 <script>
-// Typewriter
+/* TYPEWRITER + AUTO SCROLL */
 const text="Вы приглашены на свадьбу";
 const el=document.getElementById("type");
 let i=0;
+
 function type(){
   if(i<text.length){
     el.textContent+=text.charAt(i);
@@ -334,83 +234,25 @@ function type(){
   }else{
     const hero=document.getElementById("heroVideo");
     hero.style.display="flex";
-    setTimeout(()=>hero.classList.add("show"),50);
+    setTimeout(()=>{
+      hero.classList.add("show");
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+      });
+    },500);
   }
 }
 type();
 
-// Fade scroll
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)e.target.classList.add("show");
-    else e.target.classList.remove("show");
-  });
-},{threshold:.2});
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
-
-// Calendar
-const calendar=document.getElementById("calendar");
-const daysInMonth=30;
-const startDay=3; // 1 апреля — среда
-for(let i=0;i<startDay-1;i++){
-  const empty=document.createElement("div");
-  calendar.appendChild(empty);
-}
-for(let d=1;d<=daysInMonth;d++){
-  const day=document.createElement("div");
-  day.className="day";
-  day.textContent=d;
-  if(d===10) day.classList.add("active");
-  calendar.appendChild(day);
-}
-// Sparks
-function createSpark(parent){
-  const spark=document.createElement("div");
-  spark.className="spark";
-  spark.style.setProperty('--randX', Math.random());
-  spark.style.left=`${Math.random()*100}%`;
-  spark.style.top=`${Math.random()*100}%`;
-  parent.appendChild(spark);
-  setTimeout(()=>spark.remove(),1000);
-}
-document.querySelectorAll(".day").forEach(d=>{
-  d.addEventListener("mouseenter", ()=>createSpark(d));
-});
-
-// Music play after first interaction
+/* MUSIC */
 const music=document.getElementById("bgMusic");
-function playMusic(){ music.play(); window.removeEventListener("click", playMusic); window.removeEventListener("touchstart", playMusic);}
+function playMusic(){
+  music.play();
+  window.removeEventListener("click", playMusic);
+}
 window.addEventListener("click", playMusic);
-window.addEventListener("touchstart", playMusic);
-
-// RSVP Form
-const form = document.getElementById("rsvpForm");
-form.addEventListener("submit", async (e)=>{
-  e.preventDefault();
-
-  const formData = new FormData(form);
-  const params = new URLSearchParams();
-  for(const pair of formData) params.append(pair[0], pair[1]);
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwtO6JA8DVOCxVa4K4vAXby8Hqhh26T9LYK2lVAXavMfUma2vzgGjZmSkqJukrXFLxc/exec", {
-      method: "POST",
-      body: params
-    });
-
-    const data = await response.json();
-
-    if(data.status === "success"){
-      alert("Данные успешно отправлены! Спасибо.");
-      form.reset();
-    } else {
-      alert("Ошибка: " + data.message);
-    }
-
-  } catch(err){
-    alert("Ошибка при отправке: " + err);
-  }
-});
 </script>
+
 </body>
 </html>
