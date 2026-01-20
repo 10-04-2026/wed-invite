@@ -15,6 +15,7 @@
   --accent:#3a3a3a;
   --heart:#ff4d6d;
   --spark:#ffd700;
+  --input-bg:#fff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -35,6 +36,7 @@ section{padding:120px 20px;display:flex;justify-content:center;}
   font-size:36px;
   border-right:2px solid var(--accent);
   padding-right:6px;
+  white-space:nowrap;
 }
 
 .hero-wrap{
@@ -104,12 +106,15 @@ button{
 button:hover{background:var(--heart);}
 </style>
 </head>
+
 <body>
 
+<!-- INTRO -->
 <section class="intro">
   <div id="type"></div>
 </section>
 
+<!-- HERO -->
 <section id="heroVideo" style="display:none;">
   <div class="wrap hero-wrap">
     <video autoplay muted loop playsinline>
@@ -122,13 +127,18 @@ button:hover{background:var(--heart);}
   </div>
 </section>
 
+<!-- TEXT -->
 <section>
   <div class="wrap">
     <h2 class="handwritten">Дорогие родные и близкие</h2>
-    <p>С огромным волнением и радостью мы приглашаем вас разделить с нами этот особенный день — нашу свадьбу.</p>
+    <p>
+      С огромным волнением и радостью мы приглашаем вас разделить с нами
+      этот особенный день — нашу свадьбу.
+    </p>
   </div>
 </section>
 
+<!-- FORM -->
 <section>
   <div class="wrap">
     <h2 class="handwritten">Анкета</h2>
@@ -148,45 +158,45 @@ button:hover{background:var(--heart);}
       <input type="text" name="partner">
 
       <button type="submit">Отправить</button>
-      <p id="formStatus"></p>
+      <p id="formStatus" style="margin-top:15px;"></p>
     </form>
   </div>
 </section>
 
 <script>
-/* TYPEWRITER */
-const text="Вы приглашены на свадьбу";
-const el=document.getElementById("type");
-let i=0;
+// TYPEWRITER
+const text = "Вы приглашены на свадьбу";
+const el = document.getElementById("type");
+let i = 0;
+
 function type(){
-  if(i<text.length){
-    el.textContent+=text[i++];
+  if(i < text.length){
+    el.textContent += text[i++];
     setTimeout(type,120);
-  }else{
-    document.getElementById("heroVideo").style.display="flex";
+  } else {
+    document.getElementById("heroVideo").style.display = "flex";
   }
 }
 type();
 
-/* FORM SUBMIT */
-const form=document.getElementById("rsvpForm");
-const status=document.getElementById("formStatus");
+// FORM SUBMIT — РАБОТАЕТ С GOOGLE SCRIPT
+const form = document.getElementById("rsvpForm");
+const status = document.getElementById("formStatus");
 
-form.addEventListener("submit",e=>{
+form.addEventListener("submit", (e)=>{
   e.preventDefault();
-  status.textContent="Отправка...";
+  status.textContent = "Отправка...";
 
-  fetch("https://script.google.com/macros/s/AKfycbwtO6JA8DVOCxVa4K4vAXby8Hqhh26T9LYK2lVAXavMfUma2vzgGjZmSkqJukrXFLxc/exec",{
-    method:"POST",
-    body:new FormData(form)
+  fetch("https://script.google.com/macros/s/AKfycbwtO6JA8DVOCxVa4K4vAXby8Hqhh26T9LYK2lVAXavMfUma2vzgGjZmSkqJukrXFLxc/exec", {
+    method: "POST",
+    body: new FormData(form)
   })
-  .then(r=>r.text())
-  .then(()=>{
-    status.textContent="Спасибо! Ответ отправлен 🤍";
+  .then(() => {
+    status.textContent = "Спасибо! Ответ отправлен 🤍";
     form.reset();
   })
-  .catch(()=>{
-    status.textContent="Ошибка при отправке. Попробуйте позже.";
+  .catch(() => {
+    status.textContent = "Ошибка при отправке. Попробуйте позже.";
   });
 });
 </script>
