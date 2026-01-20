@@ -303,20 +303,53 @@ button:hover{background:var(--heart);}
     <h2 class="handwritten">Анкета</h2>
     <p>Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <form>
+    <!-- Форма с интеграцией Google Apps Script -->
+    <form id="weddingForm">
       <label>Ваше имя и фамилия</label>
-      <input type="text">
+      <input name="name" type="text" required>
+
       <label>Планируете ли вы присутствовать?</label>
-      <select>
+      <select name="attendance" required>
         <option>Да, с удовольствием!</option>
         <option>К сожалению, не смогу</option>
       </select>
+
       <label>Если вы будете с парой, пожалуйста, укажите имя вашего спутника(-цы)</label>
-      <input type="text">
-      <button type="button">Отправить</button>
+      <input name="partner" type="text">
+
+      <button type="submit">Отправить</button>
     </form>
   </div>
 </section>
+
+<script>
+// Typewriter и календарь оставляем без изменений...
+
+// --------------------------------------------
+// Форма отправки на Google Таблицу
+// --------------------------------------------
+const form = document.getElementById('weddingForm');
+form.addEventListener('submit', function(e){
+  e.preventDefault(); // предотвращаем перезагрузку страницы
+
+  const formData = new FormData(this);
+
+  fetch('https://script.google.com/macros/s/AKfycbxCvkPy5cPsOZLAAN2841zidlCIMLfZfnTe_h1WdFW8xOgEn-eLLMXMKiTd_jmon14Y/exec', { // <-- сюда вставь ссылку на Apps Script
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert("Спасибо! Ваш ответ отправлен.");
+    form.reset();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Ошибка при отправке. Попробуйте позже.");
+  });
+});
+</script>
+
 
 
 <script>
